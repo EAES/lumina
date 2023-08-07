@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 50, 0, 80),
-                child: Image.asset('/assets/artwork.png'),
+                child: Image.asset('assets/artwork.png'),
               ),
               ElevatedButton(
                 onPressed: () {
