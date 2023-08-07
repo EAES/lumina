@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
               child: Image.asset('assets/logo.png'),
             ),
             leadingWidth: 220,
-            backgroundColor: const Color(0x00000000),
+            backgroundColor: Colors.white,
             elevation: 0,
           ),
           body: Container(
