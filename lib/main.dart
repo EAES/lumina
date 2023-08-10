@@ -47,8 +47,9 @@ class _MyAppState extends State<MyApp> {
                   ]),
             ),
             margin: const EdgeInsets.all(0),
-            padding: const EdgeInsets.all(40),
+            padding: const EdgeInsets.all(30),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
                   'assets/logo.png',
@@ -62,32 +63,35 @@ class _MyAppState extends State<MyApp> {
                   style: TextStyle(height: 1.2, fontSize: 26),
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 50, 0, 80),
+                  margin: const EdgeInsets.fromLTRB(0, 25, 0, 50),
                   child: Image.asset('assets/artwork.png'),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    if (MyVars().hasProjects == false) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CreateProject()),
-                      );
-                    } else {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ListProjects()),
-                      );
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(280, 55),
-                      backgroundColor: const Color(0xFFFF6857),
-                      textStyle: const TextStyle(fontSize: 25),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40))),
-                  child: const Text('Let\'s Start'),
+                Container(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (MyVars().hasProjects == false) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CreateProject()),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ListProjects()),
+                        );
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(280, 55),
+                        backgroundColor: const Color(0xFFFF6857),
+                        textStyle: const TextStyle(fontSize: 25),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40))),
+                    child: const Text('Let\'s Start'),
+                  ),
                 ),
               ],
             ),
