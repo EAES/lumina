@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     title: 'Navigation Basics',
     home: MyApp(),
   ));
+}
+
+class MyVars {
+  var hasProjects = true;
 }
 
 class MyApp extends StatefulWidget {
@@ -21,11 +25,10 @@ class _MyAppState extends State<MyApp> {
       home: Builder(
         builder: (context) => Scaffold(
           appBar: AppBar(
-            leading: Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Image.asset('assets/logo.png'),
-            ),
-            leadingWidth: 220,
+            // leading: Padding(
+            //   padding: const EdgeInsets.only(left: 30),
+            //   child: Image.asset('assets/logo.png'),
+            // ),
             backgroundColor: Colors.white,
             elevation: 0,
           ),
@@ -47,6 +50,13 @@ class _MyAppState extends State<MyApp> {
             padding: const EdgeInsets.all(40),
             child: Column(
               children: [
+                Image.asset(
+                  'assets/logo.png',
+                  width: 200,
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
                 const Text(
                   'Organize your user stories in a more thoughtful way with LUMINA',
                   style: TextStyle(height: 1.2, fontSize: 26),
@@ -57,11 +67,19 @@ class _MyAppState extends State<MyApp> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SecondRoute()),
-                    );
+                    if (MyVars().hasProjects == false) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateProject()),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ListProjects()),
+                      );
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size(280, 55),
@@ -80,14 +98,35 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({super.key});
+class CreateProject extends StatelessWidget {
+  const CreateProject({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Second Route'),
+        title: const Text('Create a project'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate back to first route when tapped.
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
+  }
+}
+
+class ListProjects extends StatelessWidget {
+  const ListProjects({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Projects List'),
       ),
       body: Center(
         child: ElevatedButton(
