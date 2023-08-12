@@ -39,9 +39,18 @@ class IntroScreen extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                const Text(
-                  'Organize your user stories in a more thoughtful way with LUMINA',
-                  style: TextStyle(height: 1.2, fontSize: 26),
+                RichText(
+                  text: const TextSpan(
+                    text:
+                        'Organize your user stories in a more thoughtful way with',
+                    style: TextStyle(
+                        height: 1.2, fontSize: 26, color: Colors.black),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: ' LUMINA',
+                          style: TextStyle(color: Color(0xFFFF6857))),
+                    ],
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 25, 0, 50),

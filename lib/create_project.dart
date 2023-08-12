@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lumina/list_projects.dart';
+import 'appbar.dart';
 
 class CreateProject extends StatelessWidget {
   const CreateProject({super.key});
@@ -6,15 +8,7 @@ class CreateProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Image.asset('assets/logo.png'),
-        ),
-        leadingWidth: 175,
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
+      appBar: const CustomAppBar(),
       body: Container(
         margin: const EdgeInsets.all(0),
         padding: const EdgeInsets.all(30),
@@ -73,8 +67,7 @@ class CreateProject extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const CreateProject()),
+                  MaterialPageRoute(builder: (context) => const ListProjects()),
                 );
               },
               style: ElevatedButton.styleFrom(
