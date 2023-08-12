@@ -81,6 +81,7 @@ class _MyAppState extends State<MyApp> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
+                      shape: const StadiumBorder(),
                       minimumSize: const Size(280, 55),
                       backgroundColor: const Color(0xFFFF6857),
                       textStyle: const TextStyle(fontSize: 25),
@@ -144,21 +145,21 @@ class CreateProject extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const TextField(
+          TextField(
+            style: const TextStyle(color: Colors.black),
             decoration: InputDecoration(
-              // border: InputBorder.none,
-              prefixIcon: IconButton(
-                onPressed: null,
-                icon: Icon(Icons.email_outlined),
-                color: Colors.grey,
-              ),
+              hintText: 'My Awesome Project',
+              hintStyle: const TextStyle(fontSize: 20.0, color: Colors.black26),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFFF6857), width: 6.0),
+                borderSide:
+                    const BorderSide(color: Color(0xFFFF6857), width: 2.0),
+                borderRadius: BorderRadius.circular(90),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFFFF6857), width: 6.0),
+                borderSide:
+                    const BorderSide(color: Color(0xFFFF6857), width: 2.0),
+                borderRadius: BorderRadius.circular(90),
               ),
-              hintText: 'My Awesome Project',
             ),
           ),
           const SizedBox(
@@ -183,6 +184,7 @@ class CreateProject extends StatelessWidget {
                 }
               },
               style: ElevatedButton.styleFrom(
+                shape: const StadiumBorder(),
                 minimumSize: const Size(100, 55),
                 backgroundColor: const Color(0xFFFF6857),
                 textStyle: const TextStyle(fontSize: 25),
